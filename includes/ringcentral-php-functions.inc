@@ -10,7 +10,7 @@
 function page_header($recap = 0, $errors = 0) {
     if ($errors == 1) { show_errors(); }
     echo "<!DOCTYPE html><html class='SiteWide'><head >";
-    echo "<title >Missed Calls SMS App</title>";
+    echo "<title >Missed Calls Voicemails App</title>";
     echo "<link rel='stylesheet' href='css/ringcentral-custom.css'></head>";
 }
 function page_footer() {
@@ -18,8 +18,8 @@ function page_footer() {
 }
 
 function app_name() {
-	echo "Missed Calls SMS App";
-	return "Missed Calls SMS App";
+	echo "Missed Calls Voicemails App";
+	return "Missed Calls Voicemails App";
 }
 
 function app_version() {
@@ -33,8 +33,10 @@ function show_errors() {
      error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
     ini_set('display_errors', 1);
 }
-function echo_spaces($text, $value="", $lines=0) {
-    echo "<br /><strong><p style='color: red; display: inline'>$text:</p></strong> " ;
+function echo_spaces($text, $value="", $lines=0, $colon=true) {
+	echo "<br /><strong><p style='color: red; display: inline'>$text" ;
+	if ($colon == true) { echo ":"; }
+	echo "</p></strong> " ;
     if (is_string($value) || is_int($value))  { echo $value; }
     if (is_object($value) || is_array($value)) { ringcentral_dump_obj($value); }
     if (is_bool($value)) { if ($value) echo "TRUE / Success"; else echo 'FALSE / Failure'; }
