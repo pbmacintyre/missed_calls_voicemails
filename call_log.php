@@ -32,7 +32,7 @@ curl_close($ch);
 $callLogs = json_decode($response, true);
 
 // show all items in the call log for provided date range, if any
-//echo_spaces("call log", $callLogs);
+echo_spaces("call log", $callLogs);
 
 $i = 0 ;
 foreach ($callLogs['records'] as $call) {
