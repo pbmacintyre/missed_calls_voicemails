@@ -34,7 +34,7 @@ function show_errors() {
     ini_set('display_errors', 1);
 }
 function echo_spaces($text, $value="", $lines=0, $colon=true) {
-	echo "<br /><strong><p style='color: red; display: inline'>$text" ;
+	echo "<br/><strong><p style='color: red; display: inline'>" . $text ;
 	if ($colon == true) { echo ":"; }
 	echo "</p></strong> " ;
     if (is_string($value) || is_int($value))  { echo $value; }
@@ -42,7 +42,7 @@ function echo_spaces($text, $value="", $lines=0, $colon=true) {
     if (is_bool($value)) { if ($value) echo "TRUE / Success"; else echo 'FALSE / Failure'; }
     $i = 1 ;
     while ($i <= $lines) {
-        echo "<br />" ;
+        echo "<br/>" ;
         $i++;
     }
 }
