@@ -40,7 +40,7 @@ try {
 	if (!empty($messages)) {
 		foreach ($messages as $message) {
 			if (!empty($message->attachments)) {
-				echo_spaces("========== Voice Mail Information =====================","", 1, false);
+				echo_spaces("=== Voice Mail Information ===","", 1, false);
 				echo_spaces("Voicemail from ", $message->from->name);
 				echo_spaces("Voicemail # ", $message->from->phoneNumber, 1);
 				foreach ($message->attachments as $attachment) {
@@ -55,14 +55,11 @@ try {
 						// Display a playable link
 						echo "<audio controls>
                             <source src=\"$fileName\" type=\"audio/mpeg\">                            
-                          </audio><br/>";
-						echo_spaces("", "", 0, false);
+                          </audio><br/><br/>";
 					}
 					if ($attachment->contentType == 'text/plain') {
-						$recordingUri = $attachment->uri;
-						$recordingResponse = $platform->get($recordingUri);
-						$recordingContent = $recordingResponse->raw();
-						echo $recordingContent . "<br/>" ;
+						$recordingResponse = $platform->get($attachment->uri);
+						echo $recordingResponse->raw(). "<br/>" ;
 					}
 				}
 			}
